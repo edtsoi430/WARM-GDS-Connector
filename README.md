@@ -5,6 +5,6 @@
   Use Google App Script to build a customized connector within Google Data Studio (GDS) that retrieves data from Wild Apricot Database, so as to build easy-to-read reports in a modern and elegant fahsion.
 # References:
   https://developers.google.com/datastudio/connector/oauth2  
-  https://developers.google.com/datastudio/connector
+  https://developers.google.com/datastudio/connector  
   https://www.wildapricot.com/membership-management-software
   
