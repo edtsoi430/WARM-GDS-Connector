@@ -1,11 +1,10 @@
 {
-  "timeZone": "America/New_York",
-  "dependencies": {
-    "libraries": [{
-      "userSymbol": "OAuth2",
-      "libraryId": "1B7FSrk5Zi6L1rSxxTDgDEUsPzlukDsi4KGuTMorsTQHhGBzBkMun4iDF",
-      "version": "6"
-    }]
-  },
-  "exceptionLogging": "STACKDRIVER"
+  "dataStudio": {
+    "name": "Wild Apricot Data",
+    "company": "Edmond Tsoi - NewPath Consulting Developer",
+    "logoUrl": "https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_1489698213/newpath-consulting.jpg",
+    "addonUrl": "https://developers.google.com/datastudio/connector/getstarted",
+    "supportUrl": "https://developers.google.com/datastudio/connector/faq",
+    "description": "This connector uses the WILD Apricot API to retrieve metadata from Wild Apricot."
+  }
 }
