@@ -4,7 +4,7 @@ var API_PATHS = {
     auth: "https://oauth.wildapricot.org/auth/token",
     accounts: "https://api.wildapricot.org/v2/accounts/"
   };
-  
+  // Customized schema for Wild Apricot
   var WASchema = {
     account: [
       {
@@ -148,7 +148,7 @@ function getConfig(request) {
         type: "SELECT_SINGLE",
         displayName: "Select Data Type",
         helpText: "The connector will retrieve data for the selected type.",
-        options: [
+        options: [ // Allow users to select two of the following options for different data
           {
             label: "Account",
             value: "account"
@@ -168,6 +168,7 @@ function getSchema(request) {
   return { schema: WASchema[request.configParams.resource] };
 }
 
+// Get data from wild apricot according to the customized schema
 function getData(request) {
   var schema = WASchema[request.configParams.resource];
 
@@ -310,7 +311,7 @@ function getAuthType() {
   };
   return response;
 }
-
+// For Admin User
 function isAdminUser() {
   return true;
 }
