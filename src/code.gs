@@ -1,5 +1,6 @@
 // ---------------------------------------------------------------------------------------------------------------------------------
 // Created by Edmond Tsoi @ NewPath Consulting Ltd.
+   // Last updated : 7/2/2018
 var API_PATHS = {
     auth: "https://oauth.wildapricot.org/auth/token",
     accounts: "https://api.wildapricot.org/v2/accounts/"
