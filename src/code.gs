@@ -340,23 +340,23 @@ function getData(request) {
         switch (field.name) {
           case "Id":
             if(typeof member.Id === 'undefined') row.push("");
-            row.push(member.Id);
+            else row.push(member.Id);
             break;
           case "FirstName":
             if(typeof member.FirstName === 'undefined') row.push("");
-            row.push(member.FirstName);
+            else row.push(member.FirstName);
             break;
           case "LastName":
             if(typeof member.LastName === 'undefined') row.push("");
-            row.push(member.LastName);
+            else row.push(member.LastName);
             break;
           case "Email":
             if(typeof member.Email === 'undefined') row.push("");
-            row.push(member.Email);
+            else row.push(member.Email);
             break;
           case "DisplayName":
             if(typeof member.DisplayName === 'undefined') row.push("");
-            row.push(member.DisplayName);
+            else row.push(member.DisplayName);
             break;
           case "Organization":
             if(typeof member.Organization === 'undefined') row.push("");
@@ -367,12 +367,11 @@ function getData(request) {
             else row.push(member.MembershipLevel.Name);
             break;
           case "MembershipEnabled":
-            if(typeof member.MembershipEnabled === 'undefined') row.push("");
             row.push(member.MembershipEnabled);
             break;
           case "IsAccountAdministrator":
             if(typeof member.IsAccountAdministrator === 'undefined') row.push("");
-            row.push(member.IsAccountAdministrator);
+            else row.push(member.IsAccountAdministrator);
             break;
           case "Status":
             if(typeof member.MembershipLevel === 'undefined') row.push("Non-member");
@@ -380,7 +379,7 @@ function getData(request) {
             break;
           case "TermsOfUseAccepted":
             if(typeof member.TermsOfUseAccepted === 'undefined') row.push("");
-            row.push(member.TermsOfUseAccepted);
+            else row.push(member.TermsOfUseAccepted);
             break;
           case "Active":
             if (member.Status == "Active") row.push(true);
@@ -417,19 +416,19 @@ function getData(request) {
         switch (field.name) {
           case "Id":
             if(typeof event.Id === 'undefined') row.push("");
-            row.push(event.Id);
+            else row.push(event.Id);
             break;
           case "PendingRegistrationsCount":
              if(typeof event.PendingRegistrationsCount === 'undefined') row.push("");
-            row.push(event.PendingRegistrationsCount);
+            else row.push(event.PendingRegistrationsCount);
             break;
           case "ConfirmedRegistrationsCount":
             if(typeof event.ConfirmedRegistrationsCount === 'undefined') row.push("");
-            row.push(event.ConfirmedRegistrationsCount);
+            else row.push(event.ConfirmedRegistrationsCount);
             break;
           case "CheckedInAttendeesNumber":
             if(typeof event.CheckedInAttendeesNumber === 'undefined') row.push("");
-            row.push(event.CheckedInAttendeesNumber);
+            else row.push(event.CheckedInAttendeesNumber);
             break;
           default:
             //row.push("");
@@ -450,27 +449,27 @@ function getData(request) {
         switch(field.name){
           case "Id":
             if(typeof item.Id === 'undefined') row.push("");
-            row.push(item.id);
+            else row.push(item.id);
             break;
          case "FirstName":
             if(typeof item.FirstName === 'undefined') row.push("");
-            row.push(item.FirstName);
+            else row.push(item.FirstName);
             break;
          case "LastName":
             if(typeof item.LastName === 'undefined') row.push("");
-            row.push(item.LastName);
+            else row.push(item.LastName);
             break;
          case "Organization":
             if(typeof item.Organization === 'undefined') row.push("");
-            row.push(item.Organization);
+            else row.push(item.Organization);
             break;
          case "Email":
             if(typeof item.Email === 'undefined') row.push("");
-            row.push(item.Email);
+            else row.push(item.Email);
             break;
          case "Message":
             if(typeof item.Message === 'undefined') row.push("");
-            row.push(item.Message);
+            else row.push(item.Message);
             break;
          case "Document":
             if(typeof item.Document === 'undefined') row.push("");
