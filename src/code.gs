@@ -3,7 +3,7 @@
 // ADD GPL license
 var API_PATHS = {
     auth: "https://oauth.wildapricot.org/auth/token",
-    accounts: "https://api.wildapricot.org/v2/accounts/"
+    accounts: "https://api.wildapricot.org/v2.1/accounts/"
   };
   
   var WASchema = {
@@ -171,6 +171,46 @@ var API_PATHS = {
         }
       },
       {
+        name: "Name",
+        label: "Event Name",
+        dataType: "STRING",
+        semantics: {
+          conceptType: "DIMENSION"
+        }
+      },
+      {
+        name: "StartDate",
+        label: "Start Date",
+        dataType: "STRING",
+        semantics: {
+          conceptType: "DIMENSION"       
+        }
+      },
+      {
+        name: "EndDate",
+        label: "End Date",
+        dataType: "STRING",
+        semantics: {
+          conceptType: "DIMENSION"
+        }
+      },
+      {
+        name: "Location",
+        label: "Event Location",
+        dataType: "STRING",
+        semantics: {
+          conceptType: "DIMENSION"
+        }
+      },
+      {
+        name: "Tags",
+        label: "Event Tags",
+        dataType: "STRING",
+        semantics: {
+          conceptType: "DIMENSION"
+        }
+      },
+      {
         name: "PendingRegistrationsCount",
         label: "Number of Pending Registrations",
         dataType: "NUMBER",
@@ -198,8 +238,8 @@ var API_PATHS = {
       // AuditLog
      auditLog: [
       {
-        name: "Id",
-        label: "Member ID",
+        name: "ContactId",
+        label: "Contact ID",
         dataType: "NUMBER",
         semantics: {
           conceptType: "DIMENSION"
@@ -247,10 +287,63 @@ var API_PATHS = {
         semantics: {
           conceptType: "DIMENSION"
         }
+      }
+//      {
+//        name: "InvoiceId",
+//        label: "Invoice Id", // doing multiple calls, can be fixed in a more elegant way
+//        dataType: "NUMBER",
+//        semantics: {
+//          conceptType: "DIMENSION"
+//        }
+//      }
+    ],
+    // INVOICES
+    invoices: [
+      {
+        name: "Id",
+        label: "Invoice ID",
+        dataType: "NUMBER",
+        semantics: {
+          conceptType: "DIMENSION"
+        }
       },
       {
-        name: "Document",
-        label: "Invoice ID", // rename it as Invoice ID to allow user to interpret that more easily
+        name: "Url",
+        label: "Invoice Url",
+        dataType: "STRING",
+        semantics: {
+          conceptType: "DIMENSION",
+          semanticType: "TEXT"
+        }
+      },
+      {
+        name: "IsPaid",
+        label: "Paid",
+        dataType: "BOOLEAN",
+        semantics: {
+          conceptType: "DIMENSION",
+          semanticType: "BOOLEAN"
+        }
+      },
+      {
+        name: "PaidAmount",
+        label: "Paid Amount",
+        dataType: "NUMBER",
+        semantics: {
+          conceptType: "DIMENSION"
+        }
+      },
+      {
+        name: "ContactId",
+        label: "Contact Id",
+        dataType: "NUMBER",
+        semantics: {
+          conceptType: "DIMENSION"
+        }
+      },
+      {
+        name: "EventRegistrationID",
+        label: "Event Registration ID", // rename it as Invoice ID to allow user to interpret that more easily
         dataType: "NUMBER",
         semantics: {
           conceptType: "DIMENSION"
@@ -290,6 +383,10 @@ function getConfig(request) {
           {
             label: "AuditLog",
             value: "auditLog"
+          },
+          {
+            label: "Invoices",
+            value: "invoices"
           }
         ]
       }
@@ -328,11 +425,11 @@ function getData(request) {
     });
     rows.push({ values: row });
   } else if (request.configParams.resource == "members") { // MEMBER
-    var accountsEndpoint =
+    var membersEndpoint =
       API_PATHS.accounts +
       account.Id +
         "/Contacts?$async=false&$select='Status";
-    var members = _fetchAPI(accountsEndpoint, token);
+    var members = _fetchAPI(membersEndpoint, token);
     
     members.Contacts.forEach(function(member) {
       var row = [];
@@ -405,11 +502,11 @@ function getData(request) {
     });
   }
   else if(request.configParams.resource == "event"){ // EVENT REGISTRATIONS, To be completed
-     var accountsEndpoint =
+     var eventsEndpoint =
       API_PATHS.accounts +
       account.Id +
         "/events";
-    var events = _fetchAPI(accountsEndpoint, token);
+    var events = _fetchAPI(eventsEndpoint, token);
     events.Events.forEach(function(event){
        var row = [];
        selectedDimensionsMetrics.forEach(function(field) {
@@ -417,6 +514,37 @@ function getData(request) {
           case "Id":
             if(typeof event.Id === 'undefined') row.push("");
             else row.push(event.Id);
+            break;
+          case "Name":
+            if(typeof event.Name === 'undefined') row.push("");
+            else row.push(event.Name);
+            break;
+          case "StartDate":
+            if(typeof event.StartDate === 'undefined') row.push("");
+            else row.push(event.StartDate);
+            break;
+          case "EndDate":
+            if(typeof event.EndDate === 'undefined') row.push("");
+            else row.push(event.EndDate);
+            break;
+          case "Location":
+            if(typeof event.Location === 'undefined') row.push("");
+            else row.push(event.Location);
+            break;
+          case "Tags":
+            if(typeof event.Tags === 'undefined' || event.Tags.length == 0 ) {row.push("");}
+            else{
+            var input = "";
+            for(var j in event.Tags){ 
+              if (input == ""){
+                input = event.Tags[j]
+              }
+              else{
+                input = input + ", " + event.Tags[j];
+              }
+            } 
+            row.push(input);
+            }
             break;
           case "PendingRegistrationsCount":
              if(typeof event.PendingRegistrationsCount === 'undefined') row.push("");
@@ -438,42 +566,88 @@ function getData(request) {
     });
   }
   else if(request.configParams.resource == "auditLog"){ // AUDIT LOG, To be completed
-     var accountsEndpoint =
+     var auditLogEndpoint =
       API_PATHS.accounts +
       account.Id +
         "/auditLogItems/?StartDate=2017/03/02&EndDate=2018-03-03" ;
-    var auditLogItems = _fetchAPI(accountsEndpoint, token);
-    auditLogItems.Items.ForEach(function(item){
+    var auditLogItems = _fetchAPI(auditLogEndpoint, token);
+    auditLogItems.Items.forEach(function(AuditItem){
       var row = [];
-      selectedDimesnionsMetrics.forEach(function(field) {
+      selectedDimensionsMetrics.forEach(function(field) {
         switch(field.name){
-          case "Id":
-            if(typeof item.Id === 'undefined') row.push("");
-            else row.push(item.id);
+          case "ContactId":
+            if(typeof AuditItem.Contact === 'undefined') row.push("");
+            else row.push(AuditItem.Contact.Id);
             break;
          case "FirstName":
-            if(typeof item.FirstName === 'undefined') row.push("");
-            else row.push(item.FirstName);
+            if(typeof AuditItem.FirstName === 'undefined') row.push("");
+            else row.push(AuditItem.FirstName);
             break;
          case "LastName":
-            if(typeof item.LastName === 'undefined') row.push("");
-            else row.push(item.LastName);
+            if(typeof AuditItem.LastName === 'undefined') row.push("");
+            else row.push(AuditItem.LastName);
             break;
          case "Organization":
-            if(typeof item.Organization === 'undefined') row.push("");
-            else row.push(item.Organization);
+            if(typeof AuditItem.Organization === 'undefined' || !AuditItem.Organization) row.push("N/A");
+            else row.push(AuditItem.Organization);
             break;
          case "Email":
-            if(typeof item.Email === 'undefined') row.push("");
-            else row.push(item.Email);
+            if(typeof AuditItem.Email === 'undefined') row.push("");
+            else row.push(AuditItem.Email);
             break;
          case "Message":
-            if(typeof item.Message === 'undefined') row.push("");
-            else row.push(item.Message);
+            if(typeof AuditItem.Message === 'undefined') row.push("");
+            else row.push(AuditItem.Message);
             break;
-         case "Document":
-            if(typeof item.Document === 'undefined') row.push("");
-            else row.push(item.Document.id);
+//         case "Invoice ID": // Invoice ID, to be finished (debug)
+//            if(typeof AuditItem.Document === 'undefined' || !AuditItem.Document) row.push("");
+//            else{
+//              row.push(AuditItem.Document.Id);
+////               var AuditSpecificEndPoint =  API_PATHS.accounts +
+////                                            account.Id + "/auditLogItems/" + AuditItem.Id;
+////                var specificAudit = _fetchAPI(AuditSpeificEndpoint, token);
+////                if(typeof specificAudit.Document === 'undefined' || !specificAudit.Document) row.push("");
+////                else row.push(specificAudit.Document.Id);
+//            }
+//            break;
+//          default:
+        }
+      });
+      rows.push({ values: row });
+    });                               
+  }
+  else if(request.configParams.resource == "invoices"){ // INVOICES, To be completed
+     var accountsEndpoint =
+      API_PATHS.accounts +
+      account.Id +
+        "/invoices?unpaidOnly=false&idsOnly=false&StartDate=2018-01-03&EndDate=2018-03-03";
+    var invoices = _fetchAPI(accountsEndpoint, token);
+    invoices.Invoices.forEach(function(invoice){
+      var row = [];
+      selectedDimensionsMetrics.forEach(function(field) {
+        switch(field.name){
+          case "Id":
+            if(typeof invoice.Id === 'undefined') row.push("");
+            else row.push(invoice.Id);
+            break;
+         case "Url":
+            if(typeof invoice.Url === 'undefined') row.push("");
+            else row.push(invoice.Url);
+            break;
+         case "IsPaid":
+            row.push(invoice.IsPaid);
+            break;
+         case "PaidAmount":
+            if(typeof invoice.PaidAmount === 'undefined' || !invoice.PaidAmount) row.push("");
+            else row.push(AuditItem.PaidAmount);
+            break;
+         case "ContactId":
+            if(typeof invoice.Contact === 'undefined') row.push("");
+            else row.push(invoice.Contact.Id);
+            break;
+         case "EventRegistrationID":
+            if(typeof invoice.EventRegistration === 'undefined') row.push("");
+            else row.push(invoice.EventRegistration.Id);
             break;
           default:
         }
@@ -481,7 +655,6 @@ function getData(request) {
       rows.push({ values: row });
     });                               
   }
-
   return {
     schema: selectedDimensionsMetrics,
     rows: rows
