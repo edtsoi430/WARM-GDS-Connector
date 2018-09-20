@@ -9,6 +9,8 @@
   https://www.wildapricot.com/membership-management-software
   
 # Sample Dashboard (Google Data Studio):
-![alt text] (https://github.com/edtsoi430/Google-Data-Studio-Connector/blob/master/images/gds1.png)
+![alt text](https://github.com/edtsoi430/Google-Data-Studio-Connector/blob/master/images/gds1.png)
+
+![alt text](https://github.com/edtsoi430/Google-Data-Studio-Connector/blob/master/images/gds2.png)
     
   
