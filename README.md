@@ -8,3 +8,7 @@
   https://developers.google.com/datastudio/connector  
   https://www.wildapricot.com/membership-management-software
   
+# Sample Dashboard (Google Data Studio):
+[!alt text] Google-Data-Studio-Connector/images/gds1.png
+    
+  
