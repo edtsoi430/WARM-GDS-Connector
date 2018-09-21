@@ -8,6 +8,8 @@
 ![alt text](https://github.com/edtsoi430/Google-Data-Studio-Connector/blob/master/images/gds1.png)
 
 ![alt text](https://github.com/edtsoi430/Google-Data-Studio-Connector/blob/master/images/gds2.png)
+
+Dashboard can be customized according to users' wishes.
     
 # References:
   https://developers.google.com/datastudio/connector/oauth2  
