@@ -3,7 +3,7 @@
 // ADD GPL license
 var API_PATHS = {
     auth: "https://oauth.wildapricot.org/auth/token",
-    accounts: "https://api.wildapricot.org/v2.1/accounts/"
+    accounts: "https://api.wildapricot.org/v2.1/accounts"
   };
   
   var WASchema = {
