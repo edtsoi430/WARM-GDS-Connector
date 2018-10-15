@@ -4,7 +4,7 @@
 # Purposes:
   Use Google App Script to build a customized connector within Google Data Studio (GDS) that retrieves data from the Wild Apricot Database, so as to build reports that are user-friendly and easy to read in a modern and elegant fahsion.
   
-# Sample Dashboard (Google Data Studio):
+# Sample Dashboard (Google Data Studio)
 ![alt text](https://github.com/edtsoi430/Google-Data-Studio-Connector/blob/master/images/gds1.png)
 
 ![alt text](https://github.com/edtsoi430/Google-Data-Studio-Connector/blob/master/images/gds2.png)
