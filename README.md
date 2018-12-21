@@ -1,4 +1,4 @@
-# Google-Data-Studio-Connector
+# Google-Data-Studio-Connector:
 # Project Description:
   Wild Apricot is a #1 Rated Membership Software that allows businesses to visualize, manage and handle their system-based membership data with ease. With various functions within the system to store data, including a comprehensive Email and Contact Databse, users are able to manipulate data such as Membership Status, Event Registration, Online Payments and Audit Log Items with ease. In light of the comprehensive report tools available within Google Data Studio, a custom connector within GDS was builded to retrieve data from Wild Apricot, which will then be utilized in GDS to create customized, user-friendly and thorough report and dashboard for data visualization and analysis use.
 # Purposes:
