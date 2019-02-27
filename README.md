@@ -1,8 +1,26 @@
-# Google-Data-Studio-Connector:
+# Google Data Studio Connector for Wild Apricot:
+
 # Project Description:
-  Wild Apricot is a #1 Rated Membership Software that allows businesses to visualize, manage and handle their system-based membership data with ease. With various functions within the system to store data, including a comprehensive Email and Contact Databse, users are able to manipulate data such as Membership Status, Event Registration, Online Payments and Audit Log Items with ease. In light of the comprehensive report tools available within Google Data Studio, a custom connector within GDS was builded to retrieve data from Wild Apricot, which will then be utilized in GDS to create customized, user-friendly and thorough report and dashboard for data visualization and analysis use.
-# Purposes:
-  Use Google App Script to build a customized connector within Google Data Studio (GDS) that retrieves data from the Wild Apricot Database, so as to build reports that are user-friendly and easy to read in a modern and elegant fahsion.
+Wild Apricot is a #1 Rated Membership Software that allows membership-based organizations to manage and handle their transactional data with ease. With various functions within the system to store data, including a comprehensive and customizable contact database, members and administrators are able to manipulate data such as membership status, event registration, online payments with ease.
+
+The built in reporting capability do not allow easy summarization and visualization of Wild Apricot data. The comprehensive real-time report capabilities in Google Data Studio are a perfect tool to integrate Wild Apricot data with a variety of external analytical systems like Google Ads and Google Analytics. This is a community data connector built to retrieve data from Wild Apricot, which will then be utilized in GDS to create user-friendly and real-time dashboard for Wild Apricot.
+
+Data is fetched using WildApricot's REST API.
+
+# Features
+This community connector is written in JavaScript and supports the following API calls and their fields.
+
+Account
+
+Members/Contacts
+
+Events
+
+Invoices
+
+Auditlog
+
+The code is maintained by NewPath Consulting - www.newpathconsulting.com
   
 # Sample Dashboard (Google Data Studio):
 ![alt text](https://github.com/edtsoi430/Google-Data-Studio-Connector/blob/master/images/gds1.png)
