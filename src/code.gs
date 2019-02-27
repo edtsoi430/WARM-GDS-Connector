@@ -1,9 +1,11 @@
-// ---------------------------------------------------------------------------------------------------------------------------------
-// Created by Edmond Tsoi @ NewPath Consulting Inc.
-// ADD GPL license
+// ------------------------------------------------------------------------------------------------------------------
+// Originally created by Edmond Tsoi for NewPath Consulting Inc.
+// Maintained by Lon Motero for NewPath Consulting Inc.
+// Licenced under GPL 3.0 license
+
 var API_PATHS = {
-    auth: "https://oauth.wildapricot.org/auth/token/",
-    accounts: "https://api.wildapricot.org/v2.1/accounts"
+    auth: "https://oauth.wildapricot.org/auth/token",
+    accounts: "https://api.wildapricot.org/v2.1/accounts/"
   };
   
   var WASchema = {
@@ -341,14 +343,23 @@ var API_PATHS = {
           conceptType: "DIMENSION"
         }
       },
+//      {
+//        name: "EventRegistrationID",
+//        label: "Event Registration ID", // rename it as Invoice ID to allow user to interpret that more easily
+//        dataType: "NUMBER",
+//        semantics: {
+//          conceptType: "DIMENSION"
+//        }
+//      }
       {
-        name: "EventRegistrationID",
-        label: "Event Registration ID", // rename it as Invoice ID to allow user to interpret that more easily
-        dataType: "NUMBER",
+        name: "CreatedDate",
+        label: "Invoice Created Date",
+        dataType: "STRING",
         semantics: {
           conceptType: "DIMENSION"
         }
       }
+      
     ]
   };
 
@@ -620,7 +631,7 @@ function getData(request) {
      var accountsEndpoint =
       API_PATHS.accounts +
       account.Id +
-        "/invoices?unpaidOnly=false&idsOnly=false&StartDate=2018-01-03&EndDate=2018-03-03";
+        "/invoices?unpaidOnly=false&idsOnly=false&StartDate=2018-01-03&EndDate=2019-03-03";
     var invoices = _fetchAPI(accountsEndpoint, token);
     invoices.Invoices.forEach(function(invoice){
       var row = [];
@@ -639,15 +650,15 @@ function getData(request) {
             break;
          case "PaidAmount":
             if(typeof invoice.PaidAmount === 'undefined' || !invoice.PaidAmount) row.push("");
-            else row.push(AuditItem.PaidAmount);
+            else row.push(invoice.PaidAmount);
             break;
          case "ContactId":
             if(typeof invoice.Contact === 'undefined') row.push("");
             else row.push(invoice.Contact.Id);
             break;
-         case "EventRegistrationID":
-            if(typeof invoice.EventRegistration === 'undefined') row.push("");
-            else row.push(invoice.EventRegistration.Id);
+         case "CreatedDate":
+            if(typeof invoice.CreatedDate === 'undefined') row.push("");
+            else row.push(invoice.CreatedDate);
             break;
           default:
         }
@@ -710,12 +721,65 @@ function _filterSelectedItems(schema, selectedFields) {
   return dimensionsAndMetrics;
 }
 
+////////////////////////// OLD AUTH //////////////////////////////
+/*
 function getAuthType() {
   var response = {
     type: "OAuth2"
   };
   return response;
 }
+*/
+
+/////////////////////////// NEW AUTH /////////////////////////////////
+/**
+ * Gets the OAuth2 Auth type.
+ * @return {object} The Auth type.
+ */
+function getAuthType() {
+  var cc = DataStudioApp.createCommunityConnector();
+  return cc.newAuthTypeResponse()
+    .setAuthType(cc.AuthType.KEY)
+    .setHelpUrl('https://www.example.org/connector-auth-help')
+    .build();
+}
+
+/**
+ * Resets the auth service.
+ */
+function resetAuth() {
+  var userProperties = PropertiesService.getUserProperties();
+  userProperties.deleteProperty('dscc.key');
+}
+
+/**
+ * Returns true if the auth service has access.
+ * @return {boolean} True if the auth service has access.
+ */
+function isAuthValid() {
+  var userProperties = PropertiesService.getUserProperties();
+  var key = userProperties.getProperty('dscc.key');
+  // This assumes you have a validateKey function that can validate if the key is valid.
+  //return validateKey(key);
+    return true;
+}
+
+/**
+ * Sets the credentials.
+ * @param {Request} request The set credentials request.
+ * @return {object} An object with an errorCode.
+ */
+function setCredentials(request) {
+  var key = request.configParams.apikey;
+
+  var userProperties = PropertiesService.getUserProperties();
+  userProperties.setProperty('dscc.key', key);
+  return {
+    errorCode: 'NONE'
+  };
+}
+
+////////////////////////////////////////////////////////////////////////
 
 function isAdminUser() {
   return true;
