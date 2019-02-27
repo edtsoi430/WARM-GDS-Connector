@@ -30,6 +30,7 @@ The code is maintained by NewPath Consulting - www.newpathconsulting.com
 Dashboard can be customized flexibly according to users' wishes.
     
 # References:
-  https://developers.google.com/datastudio/connector/oauth2  
-  https://developers.google.com/datastudio/connector  
-  https://www.wildapricot.com/membership-management-software
+https://developers.google.com/datastudio/connector/auth  
+https://developers.google.com/datastudio/connector
+https://gethelp.wildapricot.com/en/articles/182-using-wild-apricots-api  
+https://www.wildapricot.com/membership-management-software
