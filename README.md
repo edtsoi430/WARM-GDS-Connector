@@ -26,10 +26,13 @@ The code is maintained by [NewPath Consulting](https://www.newpathconsulting.com
 Dashboards can be customized flexibly according to an administrator's wishes.
     
 # References
- https://developers.google.com/datastudio/connector/auth  
+ [GDS Authentication Docs](https://developers.google.com/datastudio/connector/auth)
 
- https://developers.google.com/datastudio/connector
+ [GDS Community Connector Docs](https://developers.google.com/datastudio/connector)
+ 
+ [GDS GitHub Repositories and Experiments](https://github.com/googledatastudio)
 
- https://gethelp.wildapricot.com/en/articles/182-using-wild-apricots-api  
+ [Wild Apricot API Documentation](https://gethelp.wildapricot.com/en/articles/182-using-wild-apricots-api)
 
- https://www.wildapricot.com/membership-management-software
+ [Wild Apricot Product Description](https://www.wildapricot.com/membership-management-software)
+ 
