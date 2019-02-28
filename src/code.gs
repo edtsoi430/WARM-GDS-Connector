@@ -1,6 +1,6 @@
 // ------------------------------------------------------------------------------------------------------------------
-// Originally created by Edmond Tsoi for NewPath Consulting Inc.
-// Maintained by Lon Motero for NewPath Consulting Inc.
+// Originally created by Edmond Tsoi (https://github.com/edtsoi430) for NewPath Consulting Inc.
+// Maintained by Lon Motero (https://github.com/lmatero) for NewPath Consulting Inc.
 // Licenced under GPL 3.0 license
 
 var API_PATHS = {
