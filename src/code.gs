@@ -1,7 +1,9 @@
 // ------------------------------------------------------------------------------------------------------------------
 // Originally created by Edmond Tsoi (https://github.com/edtsoi430) for NewPath Consulting Inc.
 // Maintained by Lon Motero (https://github.com/lmatero) for NewPath Consulting Inc.
-// Licenced under GPL 3.0 license
+// Licensed under GPL 3.0 license
+// Contact NewPath Consulting for support at https://www.newpathconsulting.com
+
 
 var API_PATHS = {
     auth: "https://oauth.wildapricot.org/auth/token",
