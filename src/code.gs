@@ -9,6 +9,7 @@ var API_PATHS = {
   };
   
   var WASchema = {
+	  // Account
     account: [
       {
         name: "Id",
@@ -420,7 +421,7 @@ function getData(request) {
 
   var rows = [];
 
-  if (request.configParams.resource == "account") {
+  if (request.configParams.resource == "account") { //ACCOUNT
     var row = [];
     selectedDimensionsMetrics.forEach(function(field) {
       switch (field.name) {
