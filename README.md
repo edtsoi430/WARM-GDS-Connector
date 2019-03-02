@@ -7,7 +7,7 @@ The built in reporting system in Wild Apricot does not allow easy summarization 
 
 Data is fetched in real-time, securely using Wild Apricot's REST API.
 
-The code is maintained by [NewPath Consulting](https://www.newpathconsulting.com)
+The code is maintained by [NewPath Consulting](https://www.newpathconsulting.com).
 
 # Features
 This community data connector is written in JavaScript and supports the following API calls.
