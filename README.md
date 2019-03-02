@@ -22,14 +22,14 @@ This community data connector is written in JavaScript and supports the followin
 
 This is a Community (aka Open Source Connector, but it has not yet been published by Google as a public connector in the [GDS connector repository](https://datastudio.google.com/data).
 
-To use the connector for your own use you can install the code in the src folder and install it using the [GDS deployment procedures](https://developers.google.com/datastudio/connector/deploy)
+To use the connector for your own use you can install the code in the src folder and install it using the [GDS deployment procedures](https://developers.google.com/datastudio/connector/deploy).
   
 # Sample Dashboard (Google Data Studio)
-![Dashboard 1](https://github.com/edtsoi430/Google-Data-Studio-Connector/blob/master/images/gds1.png)
+![Dashboard 1](https://github.com/asirota/gds-wildapricot-connector/blob/master/images/gds1.png)
 
-![Dashboard 2](https://github.com/edtsoi430/Google-Data-Studio-Connector/blob/master/images/gds2.png)
+![Dashboard 2](https://github.com/asirota/gds-wildapricot-connector/blob/master/images/gds2.png)
 
-Dashboards can be customized flexibly according to an administrator's wishes.
+Dashboards can be customized flexibly according to a report writers requirements using one or more data sources.
     
 # References
  [GDS Authentication Docs](https://developers.google.com/datastudio/connector/auth)
