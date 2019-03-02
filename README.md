@@ -7,6 +7,8 @@ The built in reporting system in Wild Apricot does not allow easy summarization 
 
 Data is fetched in real-time, securely using Wild Apricot's REST API.
 
+The code is maintained by [NewPath Consulting](https://www.newpathconsulting.com)
+
 # Features
 This community data connector is written in JavaScript and supports the following API calls.
 
@@ -16,7 +18,11 @@ This community data connector is written in JavaScript and supports the followin
 * Invoices
 * Auditlog
 
-The code is maintained by [NewPath Consulting](https://www.newpathconsulting.com)
+# Installation
+
+This is a Community (aka Open Source Connector, but it has not yet been published by Google as a public connector in the [GDS connector repository](https://datastudio.google.com/data).
+
+To use the connector for your own use you can install the code in the src folder and install it using the [GDS deployment procedures](https://developers.google.com/datastudio/connector/deploy)
   
 # Sample Dashboard (Google Data Studio)
 ![Dashboard 1](https://github.com/edtsoi430/Google-Data-Studio-Connector/blob/master/images/gds1.png)
