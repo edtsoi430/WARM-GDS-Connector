@@ -25,9 +25,8 @@ This is a Community (aka Open Source Connector, but it has not yet been publishe
 To use the connector for your own use you can install the code in the src folder and install it using the [GDS deployment procedures](https://developers.google.com/datastudio/connector/deploy).
   
 # Sample Dashboard (Google Data Studio)
-![Dashboard 1](https://github.com/asirota/gds-wildapricot-connector/blob/master/images/gds1.png)
+![Sample Wild Apricot Report in PDF](images/Simple Wild Apricot Report in Google Data Studio.pdf)
 
-![Dashboard 2](https://github.com/asirota/gds-wildapricot-connector/blob/master/images/gds2.png)
 
 Dashboards can be customized flexibly according to a report writers requirements using one or more data sources.
     
