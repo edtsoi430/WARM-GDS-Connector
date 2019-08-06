@@ -43,3 +43,7 @@ Dashboards can be customized flexibly according to a report writers requirements
 
  [Wild Apricot Product Description](https://www.wildapricot.com/membership-management-software)
  
+# Changelog
+
+v1.0 August 6 2019 - updated the INVOICES, EVENTS and MEMBERS endpoint to support a lot more information (custom fields not yet supported), support Stackdriver logging and global variable to turn off logging, regression tested auditlog and accounts
+                    
