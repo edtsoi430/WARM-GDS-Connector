@@ -7,7 +7,7 @@ The built in reporting system in Wild Apricot does not allow easy summarization 
 
 Data is fetched in real-time, securely using Wild Apricot's REST API.
 
-The code is maintained by [NewPath Consulting](https://www.newpathconsulting.com).
+The code is maintained by [NewPath Consulting](https://www.newpathconsulting.com/warm).
 
 # Features
 This community data connector is written in JavaScript and supports the following API calls.
@@ -25,7 +25,7 @@ This is a Community (aka Open Source Connector, but it has not yet been publishe
 To use the connector for your own use you can install the code in the src folder and install it using the [GDS deployment procedures](https://developers.google.com/datastudio/connector/deploy).
   
 # Sample Dashboard (Google Data Studio)
-![Sample Wild Apricot Report in PDF](images/Simple Wild Apricot Report in Google Data Studio.pdf)
+![Sample Wild Apricot Report in PDF](https://github.com/asirota/gds-wildapricot-connector/blob/master/images/Simple%20Wild%20Apricot%20Report%20in%20Google%20Data%20Studio.pdf)
 
 
 Dashboards can be customized flexibly according to a report writers requirements using one or more data sources.
