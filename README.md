@@ -26,6 +26,7 @@ To use the connector for your own use you can install the code in the src folder
   
 # Sample Dashboard (Google Data Studio)
 [Sample Wild Apricot Report in PDF](https://github.com/asirota/gds-wildapricot-connector/blob/master/images/Simple%20Wild%20Apricot%20Report%20in%20Google%20Data%20Studio.pdf)
+[Sample Wild Apricot Report in Google Data Studio (live)](https://datastudio.google.com/embed/reporting/1AvG9S97XRA7fE9QIaVAtMZ3QQG511wq6/page/LiZU)
 
 
 Dashboards can be customized flexibly according to a report writers requirements using one or more data sources.
