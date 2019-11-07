@@ -1,3 +1,11 @@
+# Update
+The current version of this Community Connector was recently approved by Google Analytics in September 2019 as part of the 158 connectors in the world.
+
+# Note
+This is a sample source code originally developed in 2018 that is no longer in use. 
+
+Please see our updated open source repo here: https://github.com/asirota/gds-wildapricot-connector 
+
 # Google-Data-Studio-Connector:
 # Project Description:
   Wild Apricot is a #1 Rated Membership Software that allows businesses to visualize, manage and handle their system-based membership data with ease. With various functions within the system to store data, including a comprehensive Email and Contact Databse, users are able to manipulate data such as Membership Status, Event Registration, Online Payments and Audit Log Items with ease. In light of the comprehensive report tools available within Google Data Studio, a custom connector within GDS was builded to retrieve data from Wild Apricot, which will then be utilized in GDS to create customized, user-friendly and thorough report and dashboard for data visualization and analysis use.
